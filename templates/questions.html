@@ -1,0 +1,26 @@
+{% extends "base.html" %} {% block content %}
+
+<h3>Question: {{selected_question}}</h3>
+
+<!-- TODO Start -->
+{% with messages= get_flashed_messages() %} {% if messages %} {% for msg in messages %}
+<p class="“message”">{{msg}}</p>
+{% endfor %} {% endif %}{% endwith %}
+<!-- TODO End -->
+
+<ul class="flashes"></ul>
+<form action="/answers" method="POST">
+  <input type="hidden" id="{{id}}" name="id" value="{{id}}" />
+  <label for="choice">Choose One</label>
+
+  {% for choice in selected_question_choices %}
+  <input type="radio" id="{{choice}}" name="choice" value="{{choice}}" />
+  <label for="{{choice}}">{{choice}}</label>
+  {% endfor %}
+  <hr />
+  <button>Submit</button>
+</form>
+{% endblock %}
+
+<!-- TODO QUESTIONS  -->
+<!-- TODO from line 4 this section is not setup correctly, probably need an if statement to see if the question has been answered or some other initiator to display it -->

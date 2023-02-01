@@ -1,0 +1,5 @@
+{% extends "base.html" %} {% block content %}
+<h1>{{choice}}</h1>
+{% for response in RESPONSES %}
+<p>{{response}} response</p>
+{% endfor %} {% endblock %}
