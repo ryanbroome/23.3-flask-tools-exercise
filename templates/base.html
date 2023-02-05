@@ -4,14 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/static/app.css" />
-    <title>Base Page</title>
+    <title>Survey</title>
   </head>
   <body>
-    <navbar>
-      <a href="/">Base</a>
-      <a href="/home">Home</a>
-    </navbar>
-    <main class="content">{% block content %} This is the base page for development, use navbar and select "Home" to begin{% endblock %}</main>
+    {% for msg in get_flashed_messages() %}
+    <p>{{msg}}</p>
+    {% endfor %} {% block content %} {% endblock %}
   </body>
 </html>
